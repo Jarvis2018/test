@@ -12,6 +12,8 @@
     "vue": "^2.5.17"
   },
   "devDependencies": {
+    "@commitlint/cli": "^7.5.2",
+    "@commitlint/config-conventional": "^7.5.0",
     "@vue/cli-plugin-babel": "^3.0.4",
     "@vue/cli-plugin-eslint": "^3.0.4",
     "@vue/cli-service": "^3.0.4",
@@ -25,11 +27,18 @@
     "vue-template-compiler": "^2.5.17"
   },
   "husky": {
-    "hooks": {}
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
   },
   "config": {
     "commitizen": {
       "path": "node_modules/cz-conventional-changelog"
     }
+  },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
   }
 }
